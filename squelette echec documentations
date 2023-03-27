@@ -1,0 +1,98 @@
+#include <iostream>
+using namespace std;
+
+// déclaration des classes
+
+class Piece {
+public:
+    char couleur; // 'b' pour noir, 'w' pour blanc
+    bool estVivant;
+    virtual bool deplacementPossible(int depX, int depY, int arrX, int arrY) = 0; // méthode virtuelle pure pour le déplacement des pièces
+};
+
+class Pion : public Piece {
+public:
+    bool deplacementPossible(int depX, int depY, int arrX, int arrY) {
+        // implémentation du déplacement pour les pions
+    }
+};
+
+class Tour : public Piece {
+public:
+    bool deplacementPossible(int depX, int depY, int arrX, int arrY) {
+        // implémentation du déplacement pour les tours
+    }
+};
+
+class Cavalier : public Piece {
+public:
+    bool deplacementPossible(int depX, int depY, int arrX, int arrY) {
+        // implémentation du déplacement pour les cavaliers
+    }
+};
+
+class Fou : public Piece {
+public:
+    bool deplacementPossible(int depX, int depY, int arrX, int arrY) {
+        // implémentation du déplacement pour les fous
+    }
+};
+
+class Reine : public Piece {
+public:
+    bool deplacementPossible(int depX, int depY, int arrX, int arrY) {
+        // implémentation du déplacement pour les reines
+    }
+};
+
+class Roi : public Piece {
+public:
+    bool deplacementPossible(int depX, int depY, int arrX, int arrY) {
+        // implémentation du déplacement pour les rois
+    }
+};
+
+class Plateau {
+public:
+    Piece* cases[8][8];
+    void initialiserPlateau() {
+        // initialisation des cases du plateau avec les pièces dans leur position initiale
+    }
+    void afficherPlateau() {
+        // affichage du plateau en ASCII art
+    }
+};
+
+class Joueur {
+public:
+    char couleur; // 'b' pour noir, 'w' pour blanc
+    bool estEnEchec;
+    bool estEnEchecEtMat;
+    bool peutRoquer;
+    Piece* pieces[16];
+};
+
+class Jeu {
+public:
+    Joueur joueurBlanc;
+    Joueur joueurNoir;
+    Plateau plateau;
+    void initialiserJeu() {
+        // initialisation du jeu avec les joueurs et le plateau
+    }
+    void jouerTour(Joueur& joueur) {
+        // implémentation du tour de jeu pour un joueur donné
+    }
+};
+
+// programme principal
+
+int main() {
+    Jeu jeu;
+    jeu.initialiserJeu();
+    while (!jeu.joueurBlanc.estEnEchecEtMat && !jeu.joueurNoir.estEnEchecEtMat) {
+        jeu.jouerTour(jeu.joueurBlanc);
+        jeu.jouerTour(jeu.joueurNoir);
+    }
+    return 0;
+}
